@@ -186,7 +186,7 @@ background-size: cover;
   outline: none;
 }
 
-.loginbox input[type="submit"] {
+.loginbox input[type="button"] {
   border: none;
   background-color: #53C0FB;
   border-radius: 5px;
@@ -195,6 +195,6 @@ background-size: cover;
   transition: background-color 0.5s ease-out 100ms;
 }
 
-.loginbox input[type="submit"]:hover {
+.loginbox input[type="button"]:hover {
   background-color: greenyellow;
 }
