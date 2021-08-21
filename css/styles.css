@@ -198,3 +198,12 @@ background-size: cover;
 .loginbox input[type="button"]:hover {
   background-color: greenyellow;
 }
+
+.precio {
+  font-size: xx-large;
+  font-weight: bold;
+  font-style: italic;
+  text-align: right;
+  padding-top: 120px;
+  color: rgb(8, 75, 8);
+}
