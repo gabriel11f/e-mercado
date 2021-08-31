@@ -207,3 +207,19 @@ background-size: cover;
   padding-top: 120px;
   color: rgb(8, 75, 8);
 }
+
+.ordenamiento {
+  padding-left: 54%;
+}
+
+.select {
+  width: 150px;
+  height: 30px;
+  border-radius: 5%;
+  outline: none;
+  border: transparent;
+  background-color: rgb(245, 239, 239);
+  color: #000;
+  font-size: medium;
+  font-weight: bold;
+}

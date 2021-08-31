@@ -1,4 +1,14 @@
-var categoriesArray = [];
+let campo = "cost"
+let criterio = "ascen"
+let categoriesArray = [];
+
+const ordenarObjetos = (array, campo, criterio) => {
+    if (criterio === "ascen") array.sort((a, b) => (a[campo].localeCompare > b[campo]))
+    else
+        array.sort((a, b) => (b[campo].localeCompare > a[campo]));
+
+    showCategoriesList(array)
+};
 
 function showCategoriesList(array) {
 
@@ -35,7 +45,19 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             categoriesArray = resultObj.data;
             showCategoriesList(categoriesArray);
-            
         }
     });
+
+    document.getElementById("asc").addEventListener("click", () => {
+        criterio = "ascen";
+        ordenarObjetos(categoriesArray, campo, criterio);
+    });
+    document.getElementById("desc").addEventListener("click", () => {
+        criterio = "desc";
+        ordenarObjetos(categoriesArray, campo, criterio);
+    });
+    document.getElementById("ordenar").addEventListener("change", () => {
+        campo = document.getElementById("ordenar").value;
+        ordenarObjetos(categoriesArray, campo, criterio)
+    })
 });

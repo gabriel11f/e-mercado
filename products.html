@@ -31,6 +31,18 @@
       <div class="text-center p-4">
         <h2>Listado</h2>
       </div>
+      <div class="ordenamiento">
+        <Label>Ordernar por: <select class="select" name="ordenar" id="ordenar">
+          <option value="Precio">Precio</option>
+          <option value="Relevancia">Relevancia</option>
+        </select> </Label>
+
+        <label>Ascendente <input type="radio" name="orden" value="asc" id="asc" checked> </label>
+
+
+        <label>Descendiente <input type="radio" name="orden" value="desc" id="desc"></label>
+
+      </div>
       <div class="container">
         <div class="row">
           <div class="list-group" id="cat-list-container">
