@@ -1,14 +1,43 @@
-let campo = "cost"
-let criterio = "ascen"
 let categoriesArray = [];
-
-const ordenarObjetos = (array, campo, criterio) => {
-    if (criterio === "ascen") array.sort((a, b) => (a[campo].localeCompare > b[campo]))
-    else
-        array.sort((a, b) => (b[campo].localeCompare > a[campo]));
-
-    showCategoriesList(array)
-};
+let ordenarObjetos = (array, criterio) => {
+    const campo = document.getElementById("ordenar").value;
+    if (campo === "Precio") {
+        if (criterio === "ascen") {
+            array.sort((a, b) => {
+                if (b.cost > a.cost) { return -1 };
+                if (b.cost < a.cost) { return 1 };
+                return 0;
+            })
+            showCategoriesList(array)
+        }
+        if (criterio === "desc") {
+            array.sort((a, b) => {
+                if (a.cost > b.cost) { return -1 };
+                if (a.cost < b.cost) { return 1 };
+                return 0;
+            })
+            showCategoriesList(array)
+        }
+    }
+    if (campo === "Relevancia") {
+        if (criterio === "ascen") {
+            array.sort((a, b) => {
+                if (b.soldCount > a.soldCount) { return -1 };
+                if (b.soldCount > a.soldCount) { return 1 };
+                return 0;
+            })
+            showCategoriesList(array)
+        }
+        if (criterio === "desc") {
+            array.sort((a, b) => {
+                if (a.soldCount > b.soldCount) { return -1 };
+                if (a.soldCount > b.soldCount) { return 1 };
+                return 0;
+            })
+            showCategoriesList(array)
+        }
+    }
+}
 
 function showCategoriesList(array) {
 
@@ -44,20 +73,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             categoriesArray = resultObj.data;
-            showCategoriesList(categoriesArray);
+            ordenarObjetos(categoriesArray, "ascen")
         }
     });
 
-    document.getElementById("asc").addEventListener("click", () => {
-        criterio = "ascen";
-        ordenarObjetos(categoriesArray, campo, criterio);
+    document.getElementById("asc").addEventListener("change", () => {
+        ordenarObjetos(categoriesArray, "ascen");
     });
-    document.getElementById("desc").addEventListener("click", () => {
-        criterio = "desc";
-        ordenarObjetos(categoriesArray, campo, criterio);
+    document.getElementById("desc").addEventListener("change", () => {
+        ordenarObjetos(categoriesArray, "desc");
     });
     document.getElementById("ordenar").addEventListener("change", () => {
-        campo = document.getElementById("ordenar").value;
-        ordenarObjetos(categoriesArray, campo, criterio)
-    })
-});
+        ordenarObjetos (categoriesArray, "ascen");
+    }) 
+}); 
