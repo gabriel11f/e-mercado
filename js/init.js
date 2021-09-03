@@ -49,4 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.location = 'login.html';
 };
+  document.getElementById("shUs").innerHTML = "Bienvenido, " + localStorage.getItem("usuario")
 });

@@ -248,3 +248,9 @@ background-size: cover;
   transform: scale(1.2);
   background-color: #fa4454;
 }
+
+#shUs {
+  color: #fa4454;
+  font-size: large;
+  padding-top: 5px;
+}
