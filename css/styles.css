@@ -254,3 +254,19 @@ background-size: cover;
   font-size: large;
   padding-top: 5px;
 }
+
+#min, #max{
+  border-radius: 8px;
+  appearance: none;
+  box-sizing: border-box;
+  border: 2px solid rgb(236, 210, 210);
+  width: 142px;
+  height: 30px;
+  outline: none;
+  background-color: transparent;
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+}

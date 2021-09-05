@@ -23,6 +23,7 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div id="shUs"></div>
     </div>
   </nav>
 
@@ -33,14 +34,21 @@
       </div>
       <div class="ordenamiento">
         <Label>Ordernar por: <select class="select" name="ordenar" id="ordenar">
-          <option value="Precio">Precio</option>
-          <option value="Relevancia">Relevancia</option>
-        </select> </Label>
+            <option value="Precio">Precio</option>
+            <option value="Relevancia">Relevancia</option>
+          </select> </Label>
 
         <label>Ascendente <input class="radio" type="radio" name="orden" value="asc" id="asc" checked> </label>
 
 
         <label>Descendente <input class="radio" type="radio" name="orden" value="desc" id="desc"></label>
+        <br>
+
+        <Label> Precio <input type="number" placeholder="min" id="min"> <input type="number" placeholder="max" id="max">
+          <div class="btn-group" role="group">
+            <button class="btn btn-light btn-block" id="FiltrarPrecio">Filtrar</button>
+            <button class="btn btn-light btn-light" id="LimpiarFiltro">Limpiar</button>
+          </div>
 
       </div>
       <div class="container">

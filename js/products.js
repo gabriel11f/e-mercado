@@ -1,4 +1,4 @@
-let categoriesArray = [];
+let productsArray = [];
 let ordenarObjetos = (array, criterio) => {
     const campo = document.getElementById("ordenar").value;
     if (campo === "Precio") {
@@ -8,7 +8,7 @@ let ordenarObjetos = (array, criterio) => {
                 if (b.cost < a.cost) { return 1 };
                 return 0;
             })
-            showCategoriesList(array)
+            showProductsList(array)
         }
         if (criterio === "desc") {
             array.sort((a, b) => {
@@ -16,7 +16,7 @@ let ordenarObjetos = (array, criterio) => {
                 if (a.cost < b.cost) { return 1 };
                 return 0;
             })
-            showCategoriesList(array)
+            showProductsList(array)
         }
     }
     if (campo === "Relevancia") {
@@ -26,7 +26,7 @@ let ordenarObjetos = (array, criterio) => {
                 if (b.soldCount > a.soldCount) { return 1 };
                 return 0;
             })
-            showCategoriesList(array)
+            showProductsList(array)
         }
         if (criterio === "desc") {
             array.sort((a, b) => {
@@ -34,30 +34,31 @@ let ordenarObjetos = (array, criterio) => {
                 if (a.soldCount > b.soldCount) { return 1 };
                 return 0;
             })
-            showCategoriesList(array)
+            showProductsList(array)
         }
     }
+
 }
 
-function showCategoriesList(array) {
+function showProductsList(array) {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
-        let category = array[i];
+        let product = array[i];
 
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="` + category.desc + `" class="img-thumbnail">
+                    <img src="` + product.imgSrc + `" alt="` + product.desc + `" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name + `</h4>
+                        <h4 class="mb-1">`+ product.name + `</h4>
                     </div>
-                    <small class="text-muted">` + category.description + ` </small>
+                    <small class="text-muted">` + product.description + ` </small>
                 </div>
-                <small class="precio">` + " Precio: " + category.cost + " " + ` dólares </small>
+                <small class="precio">` + " Precio: " + product.cost + " " + ` dólares </small>
             </div>
         </div>
         `
@@ -66,24 +67,38 @@ function showCategoriesList(array) {
     }
 }
 
+let filtrarPorPrecio = (array) => {
+    let min = document.getElementById("min").value;
+    let max = document.getElementById("max").value;
+
+    productsArray = (array.filter(a => a.cost >= min && a.cost <= max));
+};
+const traerLista = () => {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productsArray = resultObj.data;
+            ordenarObjetos(productsArray, "ascen")
+        }
+    })
+};
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            categoriesArray = resultObj.data;
-            ordenarObjetos(categoriesArray, "ascen")
-        }
-    });
-
+    traerLista();
     document.getElementById("asc").addEventListener("change", () => {
-        ordenarObjetos(categoriesArray, "ascen");
+        ordenarObjetos(productsArray, "ascen");
     });
     document.getElementById("desc").addEventListener("change", () => {
-        ordenarObjetos(categoriesArray, "desc");
+        ordenarObjetos(productsArray, "desc");
     });
     document.getElementById("ordenar").addEventListener("change", () => {
-        ordenarObjetos (categoriesArray, "ascen");
-    }) 
-}); 
+        ordenarObjetos(productsArray, "ascen");
+    });
+
+    document.getElementById("FiltrarPrecio").addEventListener("click", () => {
+        filtrarPorPrecio(productsArray);
+        ordenarObjetos(productsArray, "ascen")
+    });
+    document.getElementById("LimpiarFiltro").addEventListener("click", traerLista);
+});
