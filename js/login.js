@@ -8,7 +8,7 @@ const buttonLogin = () => {
     const pass = password.value;
     if (user && pass) {
         localStorage.setItem("usuario", user.trim());
-        localStorage.setItem("passw", pass.trim())
+        
         window.location="index.html";
     }
 
