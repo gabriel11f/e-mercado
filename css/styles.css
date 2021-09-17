@@ -247,6 +247,7 @@ background-size: cover;
 .img-thumbnail:hover {
   transform: scale(1.2);
   background-color: #fa4454;
+  cursor: pointer;
 }
 
 #shUs {
@@ -269,4 +270,21 @@ background-size: cover;
   cursor: pointer;
   line-height: 1.1;
   background-color: #fff;
+}
+
+#costbutton {
+  background: linear-gradient(to top, #d43744, #fa4454);
+  height: 40px;
+  width: 150px;
+  padding-top: 8px;
+  font-size: large;
+  font-weight: bolder;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+}
+
+#costbutton:hover {
+  background: linear-gradient(to top, #d43744, rgb(243, 142, 142));
+  cursor: pointer
 }

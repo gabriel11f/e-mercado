@@ -101,4 +101,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         ordenarObjetos(productsArray, "ascen")
     });
     document.getElementById("LimpiarFiltro").addEventListener("click", traerLista);
+    
+    document.getElementById("cat-list-container").addEventListener("click", ()=> {
+        window.location =  'product-info.html'
+    });
 });
