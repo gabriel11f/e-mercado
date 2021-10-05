@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -24,36 +24,41 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <a class="dropdown-item" href="login.html" onclick="logOut()">Cerrar sesión</a>
         </div>
-      
-    </div>
-  </nav>
-  <main role="main">
-    <div class="container mt-5">
-      <div class="text-center p-4">
-        <h2>Información del producto</h2>
-        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
-
-        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
-          seleccionada previamente, siempre se visualizará el siguiente: <strong>Chevrolet Onix Joy</strong>.</p>
+        
       </div>
-      <h3 id="productName"></h3>
-      <hr class="my-3">
-      <dl>
-        <dt>Categoría</dt>
-        <dd>
-          <p id="productCategory"></p>
-        </dd>
-
-        <dt>Descripción</dt>
-        <dd>
-          <p id="productDescription"></p>
+    </nav>
+    <main role="main">
+      <div class="container mt-5">
+        <div class="text-center p-4">
+          <h2>Información del producto</h2>
+          <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+          
+          <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+            seleccionada previamente, siempre se visualizará el siguiente: <strong>Chevrolet Onix Joy</strong>.</p>
+          </div>
+          <dt>Imágenes ilustrativas</dt>
+          <dd>
+            <div class="row text-center text-lg-left pt-2" id="ImagesGallery">
+            </div>
+          </dd>
+          <h3 id="productName"></h3>
+          <hr class="my-3">
+          <dl>
+            <dt>Categoría</dt>
+            <dd>
+              <p id="productCategory"></p>
+            </dd>
+            
+            <dt>Descripción</dt>
+            <dd>
+              <p id="productDescription"></p>
         </dd>
 
         <dt>Cantidad de productos vendidos</dt>
@@ -69,20 +74,25 @@
         </div>
         <br>
         <br>
-        <dt>Imágenes ilustrativas</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="ImagesGallery">
+        <h3> Productos Relacionados:</h3> 
+        <div id="related" class="row row-cols-2 row-cols-md-1"></div>
+
+        <dt><h2> <div class="accordion" id="accordionExample" > 
+            <div class="card bg-primary"> <button class="btn text-white btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> Ver comentarios </button> </div> </div> </h2></dt>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <p id="comments"></p>
+              </div>
+            </div>
           </div>
-        </dd>
-
-        <dt><h2> Comentarios </h2></dt>
         <dd>
-          <p id="comments"></p>
+         
         </dd>
-      </dl>
-      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
-    </div>
-
+      </dl><div class="container d-flex justify-content-lg-center">
+        <a type="button" class="btn btn-danger btn-lg btn-block text-center" style="width: 18rem;" href="products.html">Volver a productos</a>
+      </div>
+        
     <h3 id="rateUs"> Añade tu valoración </h3>
     <div class="container d-flex justify-content-center mt-200">
       <div class="row">

@@ -369,3 +369,8 @@ text-align: center;
   background-color: #fa4454;
   color: #000;
 }
+
+label.starrate {
+  color: #FE7;
+  text-shadow: 0 0 20px rgb(34, 134, 141)
+}
