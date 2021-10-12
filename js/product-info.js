@@ -61,8 +61,6 @@ const showRelProd = (array) => {
     for (let value of newArray) {
         const relatedProd = myProducts[value];
         
-        console.log(relatedProd.name)
-        
         
         
         document.getElementById("related").innerHTML += `

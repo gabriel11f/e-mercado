@@ -201,11 +201,10 @@ background-size: cover;
 
 .precio {
   font-size: xx-large;
-  font-weight: bold;
   font-style: italic;
   text-align: right;
   padding-top: 120px;
-  color: rgb(8, 75, 8);
+  color: rgb(108, 112, 108);
 }
 
 .ordenamiento {
